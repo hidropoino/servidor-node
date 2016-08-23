@@ -2,10 +2,14 @@
 ![hidropoino Logo](https://github.com/hidropoino/servidor-node/blob/master/public/images/logo3.png)
 
 Tela Login
-![hidropoino Sistema]()
+![hidropoino Sistema](https://github.com/hidropoino/servidor-node/blob/master/public/images/gallery/tela-login-v02.png)
 
 Tela DashBoard
-![hidropoino Sistema]()
+![hidropoino Sistema](https://github.com/hidropoino/servidor-node/blob/master/public/images/gallery/Captura%20de%20tela%20de%202016-08-20%2011-49-32.png)
+
+Sistema Hidroponico
+![hidropino hardware] (https://github.com/hidropoino/servidor-node/blob/master/public/images/gallery/sistema01.jpg)
+![hidropino hardware] (https://github.com/hidropoino/servidor-node/blob/master/public/images/gallery/sistema02.jpg)
 
 **Visão geral**
 Imagine um sistema hidropônico sustentável e inteligente, que não necessitará da interversão humana em algumas atividades. O projeto proposto aborda agentes inteligentes, sensores e atuadores, entre outras tecnologias e técnicas, onde realizarão o controle de todas as variáveis do sistema, necessárias para a produção de alguns tipos de hortaliças e frutas em domicilio, tudo isso visando qualidade na alimentação, economia de água, sustentabilidade e baixo custo.
