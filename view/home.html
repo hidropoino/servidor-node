@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <title>Dash Board - Hidropoino</title>
+    <!--Core CSS -->
+    <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="js/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="js/jvector-map/jquery-jvectormap-1.2.2.css" rel="stylesheet">
+    <link href="css/clndr.css" rel="stylesheet">
+    <!--clock css-->
+    <link href="js/css3clock/css/style.css" rel="stylesheet">
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="js/morris-chart/morris.css">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/bootstrap-switch.css" />
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+<!--[if lt IE 9]>
+    <script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+
+<!-- Socket.io - aqui chamamos nosso socket. -->
+<script src="js/socket.io.min.js" type="text/javascript"></script>
+<script src="js/interactiveclock.js" type="text/javascript"></script>
+<script src="js/speak.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <section id="container">
+        <!--header start-->
+        <header class="header fixed-top clearfix">
+            <!--logo start-->
+            <div class="brand">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" height="60" alt="Hidropoino">
+                </a>
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars"></div>
+                </div>
+            </div>
+            <!--logo end-->
+
+            <div class='nav notify-row' id='top_menu'>
+                <ul class='nav top-menu'>
+                    <li id='header_notification_bar' class='dropdown'>
+                        <a data-toggle='dropdown' class='dropdown-toggle' href='#'><i class='fa fa-bell-o'></i><span class='badge bg-warning'>0</span></a>
+                        <ul class='dropdown-menu extended notification'>"
+                            <li><p>Notificações</p></li>
+                            <li>
+                                <div class='alert alert-info clearfix'>
+                                    <span class='alert-icon'>
+                                        <i class='fa fa-bolt'></i></span>
+                                        <div class='noti-info'><a href='#'> .. </a></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class='alert alert-danger clearfix'>
+                                        <span class='alert-icon'>
+                                            <i class='fa fa-bolt'></i></span>
+                                            <div class='noti-info'>
+                                                <a href='#'>Failed to read from DHT sensor!</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class='alert alert-success clearfix'>
+                                            <span class='alert-icon'>
+                                                <i class='fa fa-bolt'></i></span><div class='noti-info'><a href='#'> .. </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="top-nav clearfix">
+                        <!--search & user info start-->
+                        <ul class="nav pull-right top-menu">
+                            <!-- user login dropdown start-->
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                    <img alt="" src="images/logo2.png">
+                                    <span class="username">Admin</span>
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu extended logout">
+                                    <li><a href="#"><i class="fa fa-wrench"></i> Configurações</a></li>
+                                    <li><a href="/logout"><i class="fa fa-key"></i> Sair</a></li>
+                                </ul>
+                            </li>
+                            <!-- user login dropdown end -->
+                            <li>
+                                <div class="toggle-right-box">
+                                    <div class="fa fa-bars"></div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!--search & user info end-->
+                    </div>
+                </header>
+                <!--header end-->
+
+                <!--sidebar start-->
+                <aside>
+                    <div id="sidebar" class="nav-collapse">
+                        <!-- sidebar menu start-->
+                        <div class="leftside-navigation">
+                            <ul class="sidebar-menu" id="nav-accordion">
+                                <li>
+                                    <a class="active" href="/home">
+                                        <i class="fa fa-dashboard"></i>
+                                        <span>Dashboard</span>
+                                    </a>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="/configuracao">
+                                        <i class="fa fa-wrench"></i>
+                                        <span>Configurações</span>
+                                    </a>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="sobre">
+                                        <i class="fa fa-leaf"></i>
+                                        <span>Sobre</span>
+                                    </a>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="ajuda:;">
+                                        <i class="fa fa-tasks"></i>
+                                        <span>Ajuda</span>
+                                    </a>
+                                    <ul class="sub">
+                                        <li><a href="/manual">Manual Hidropoino</a></li>
+                                        <li><a href="/diario">Diário de bordo</a></li>
+                                    </ul>
+                                </li>
+                            </ul>           
+                        </div>
+                        <!-- sidebar menu end-->
+                    </div>
+                </aside>
+                <!--sidebar end-->
+
+                <!--main content start-->
+                <section id="main-content">
+                    <section class="wrapper">
+
+                        <!--mini statistics start-->
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="mini-stat clearfix">
+                                    <span class="mini-stat-icon yellow-b"><i class="fa fa-sun-o"></i></span>
+                                    <div class="mini-stat-info">
+                                        <span id="tempcelsius">0ºC</span>
+                                        Temp. do Ambiente ºC
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mini-stat clearfix">
+                                    <span class="mini-stat-icon yellow-b"><i class="fa fa-sun-o"></i></span>
+                                    <div class="mini-stat-info">
+                                        <span id="tempfahrenheit">0ºF</span>
+                                        Temp. do Ambiente ºF
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mini-stat clearfix">
+                                    <span class="mini-stat-icon orange"><i class="fa fa-sun-o"></i></span>
+                                    <div class="mini-stat-info">
+                                        <span id="heatindexhic">0ºC</span>
+                                        Indice de calor ºC
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mini-stat clearfix">
+                                    <span class="mini-stat-icon orange"><i class="fa fa-sun-o"></i></span>
+                                    <div class="mini-stat-info">
+                                        <span id="heatindexhif">0ºF</span>
+                                        Indice de calor ºF
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mini-stat clearfix">
+                                    <span class="mini-stat-icon tar"><i class="fa fa-cloud"></i></span>
+                                    <div class="mini-stat-info">
+                                        <span id="humidity">0%</span>
+                                        Humidade do Ar
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="mini-stat clearfix">
+                                    <span class="mini-stat-icon green"><i class="fa fa-lightbulb-o"></i></span>
+                                    <div class="mini-stat-info">
+                                        <span id="luminosity"></span>
+                                        Luminosidade
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="mini-stat clearfix">
+                                    <span class="mini-stat-icon pink"><i class="fa fa-tint"></i></span>
+                                    <div class="mini-stat-info">
+                                        <span id="tempaguac"0ºC></span>
+                                        Temp. da Água ºC
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="mini-stat clearfix">
+                                    <span class="mini-stat-icon pink"><i class="fa fa-tint"></i></span>
+                                    <div class="mini-stat-info">
+                                        <span id="tempaguaf">0ºF</span>
+                                        Temp. da Água ºF
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="mini-stat clearfix">
+                                    <span class="mini-stat-icon pink"><i class="fa fa-tint"></i></span>
+                                    <div class="mini-stat-info">
+                                        <span id="higrometro"></span>
+                                        Higrometro
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--mini statistics end-->
+
+                        <!--mini statistics start-->
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="mini-stat clearfix">
+                                    <span class="mini-stat-icon red"><i class="fa fa-bolt"></i></span>
+                                    <div class="mini-stat-info">
+                                        <span id="statusbomba">ON</span>
+                                        Status motor bomba
+                                    </div>
+                                </div>
+                                <div class="mini-stat clearfix">
+                                    <span class="mini-stat-icon orange"><i class="fa fa-tachometer"></i></span>
+                                    <div class="mini-stat-info">
+                                        <span>pH</span>
+                                        pH da água
+                                    </div>
+                                </div>
+                                <div class="mini-stat clearfix">
+                                    <span class="mini-stat-icon orange"><i class="fa fa-calendar"></i></span>
+                                    <div class="mini-stat-info">
+                                        <span>29/10/2016</span>
+                                        Previsão para colher
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <header class="panel-heading">
+                                        Configurações
+                                        <span class="tools pull-right">
+                                            <a class="fa fa-chevron-down" href="javascript:;"></a>
+                                            <a class="fa fa-cog" href="javascript:;"></a>
+                                            <a class="fa fa-times" href="javascript:;"></a>
+                                        </span>
+                                    </header>
+                                    <div class="panel-body">
+                                        <div class="row m-bot20">
+                                            <div class="col-md-7 col-xs-7">Motor bomba</div>
+                                            <div class="col-md-5 col-xs-5">
+                                                <input type="checkbox" checked class="switch-mini">
+                                            </div>
+                                        </div>
+                                        <div class="row m-bot20">
+                                            <div class="col-md-7 col-xs-7">Sensor Ph</div>
+                                            <div class="col-md-5 col-xs-5">
+                                                <input type="checkbox" checked data-on="success" data-off="info" class="switch-mini">
+                                            </div>
+                                        </div>
+
+                                        <div class="row m-bot20">
+                                            <div class="col-md-7 col-xs-7">Módulo Tem. Hum.</div>
+                                            <div class="col-md-5 col-xs-5">
+                                                <input type="checkbox" checked data-on="danger" data-off="default" class="switch-mini">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row m-bot20">
+                                            <div class="col-md-7 col-xs-7">Fotossíntese Artificial</div>
+                                            <div class="col-md-5 col-xs-5">
+                                                <input type="checkbox" checked data-on="warning" data-off="default" class="switch-mini">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row m-bot20">
+                                            <div class="col-md-7 col-xs-7">Temperatura da água</div>
+                                            <div class="col-md-5 col-xs-5">
+                                                <input type="checkbox" checked data-on="danger" data-off="default" class="switch-mini">
+                                            </div>
+                                        </div>
+
+                                        <div class="row m-bot20">
+                                            <div class="col-md-7 col-xs-7">Energia Solar</div>
+                                            <div class="col-md-5 col-xs-5">
+                                                <input type="checkbox" checked data-on="success" data-off="info" class="switch-mini">
+                                            </div>
+                                        </div>
+                                        <div class="row m-bot20">
+                                            <div class="col-md-7 col-xs-7">Location Services</div>
+                                            <div class="col-md-5 col-xs-5">
+                                                <input type="checkbox" checked data-on="success" data-off="info" class="switch-mini">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="profile-nav alt">
+                                    <section class="panel">
+                                        <div class="user-heading alt clock-row terques-bg">
+                                            <h1>
+                                                <script type="text/javascript">
+                                                    document.write("<font size=2 face='Arial, Helvetica, sans-serif'>" + dsem[xDia] + ", " + dia + " de " + dmes[mes] + " de " + ano + "");
+
+                                                    document.write("<dl><dd>")
+
+                                                    day = new Date()
+                                                    hr = day.getHours()
+
+                                                    if (hr == 1){
+                                                        document.write("Já é 1 da manhã! Você não dorme não?")
+                                                    }   
+                                                    if (hr == 2){
+                                                        document.write("Já é 2 da manhã! Vai dormir!!!")
+                                                    }
+                                                    if (hr == 3){
+                                                        document.write("Já é 3 da manhã! Você é um vampiro ou o que?!?!")
+                                                    }
+                                                    if (hr == 4){
+                                                        document.write("São 4 da manhã! você não dorme não? já devia estar na cama agora?!?!")
+                                                    }
+                                                    if (hr == 5){
+                                                        document.write("Meu, 5 da manhã já está clareando e você ainda ta a mil!")
+                                                    } 
+                                                    if (hr == 6){
+                                                        document.write("6 da manhã, Deus ajuda quem cedo madruga!")
+                                                    }
+                                                    if ((hr == 7) || (hr == 8) || (hr == 9) || (hr == 10)){
+                                                        document.write("Bom dia!")
+                                                    }
+                                                    if (hr == 11){
+                                                        document.write("11 da manhã está quase na hora do almoço!")
+                                                    }  
+                                                    if (hr == 12){
+                                                        document.write("Meio-dia! Que tal ir almoçar?")
+                                                    } 
+                                                    if (hr == 13){
+                                                        document.write("1 hora da tarde! Já almoçou hoje?")
+                                                    }
+                                                    if ((hr == 14) || (hr == 15)){
+                                                        document.write("Boa tarde!")
+                                                    }
+                                                    if (hr == 16){
+                                                        document.write("Já deu um tempo pra ver o que está acontecendo lá fora, hoje?")
+                                                    }
+                                                    if (hr == 17){
+                                                        document.write("Hora do cafezinho da tarde!")
+                                                    }
+                                                    if (hr == 18){
+                                                        document.write("Bom fim de tarde!")
+                                                    }
+                                                    if ((hr == 19) || (hr == 20) || (hr == 21) || (hr == 22)){
+                                                        document.write("Boa noite!")
+                                                    }
+                                                    if (hr == 23){
+                                                        document.write("Já é quase meia-noite!")
+                                                    }
+                                                    if (hr == 0){
+                                                        document.write("Meia-noite! Já é um novo dia!")
+                                                    }
+                                                    document.write("</dl>"+"</font>")
+                                                </script>
+                                            </h1>
+                                        </div>
+                                        <ul id="clock">
+                                            <li id="sec"></li>
+                                            <li id="hour"></li>
+                                            <li id="min"></li>
+                                        </ul>
+
+                                        <ul class="clock-category">
+                                            <li>
+                                                <a href="#" class="active">
+                                                    <i class="ico-clock2"></i>
+                                                    <span>Relógio</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="ico-alarm2 "></i>
+                                                    <span>Alarme</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="ico-stopwatch"></i>
+                                                    <span>Cronômetro</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class=" ico-clock2 "></i>
+                                                    <span>Tempo</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <!--mini statistics end-->
+                    </section>
+                </section>
+                <!--main content end-->
+                <!--right sidebar start-->
+                <div class="right-sidebar">
+                    <div class="right-stat-bar">
+                        <ul class="right-side-accordion">
+                            <li class="widget-collapsible">
+                                <a href="#" class="head widget-head red-bg active clearfix">
+                                    <span class="pull-left">work progress (5)</span>
+                                    <span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
+                                </a>
+                                <ul class="widget-container">
+                                    <li>
+                                        <div class="prog-row side-mini-stat clearfix">
+                                            <div class="side-graph-info">
+                                                <h4>Target sell</h4>
+                                                <p>
+                                                    25%, Deadline 12 june 13
+                                                </p>
+                                            </div>
+                                            <div class="side-mini-graph">
+                                                <div class="target-sell">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="prog-row side-mini-stat">
+                                            <div class="side-graph-info">
+                                                <h4>product delivery</h4>
+                                                <p>
+                                                    55%, Deadline 12 june 13
+                                                </p>
+                                            </div>
+                                            <div class="side-mini-graph">
+                                                <div class="p-delivery">
+                                                    <div class="sparkline" data-type="bar" data-resize="true" data-height="30" data-width="90%" data-bar-color="#39b7ab" data-bar-width="5" data-data="[200,135,667,333,526,996,564,123,890,564,455]">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="prog-row side-mini-stat">
+                                            <div class="side-graph-info payment-info">
+                                                <h4>payment collection</h4>
+                                                <p>
+                                                    25%, Deadline 12 june 13
+                                                </p>
+                                            </div>
+                                            <div class="side-mini-graph">
+                                                <div class="p-collection">
+                                                   <span class="pc-epie-chart" data-percent="45">
+                                                       <span class="percent"></span>
+                                                   </span>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="prog-row side-mini-stat">
+                                        <div class="side-graph-info">
+                                            <h4>delivery pending</h4>
+                                            <p>
+                                                44%, Deadline 12 june 13
+                                            </p>
+                                        </div>
+                                        <div class="side-mini-graph">
+                                            <div class="d-pending">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="prog-row side-mini-stat">
+                                        <div class="col-md-12">
+                                            <h4>total progress</h4>
+                                            <p>
+                                                50%, Deadline 12 june 13
+                                            </p>
+                                            <div class="progress progress-xs mtop10">
+                                                <div style="width: 50%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="20" role="progressbar" class="progress-bar progress-bar-info">
+                                                    <span class="sr-only">50% Complete</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="widget-collapsible">
+                            <a href="#" class="head widget-head terques-bg active clearfix">
+                                <span class="pull-left">Usuários online ()</span>
+                                <span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
+                            </a>
+                            <ul class="widget-container">
+                                <li>
+                                    <div class="prog-row">
+                                        <div class="user-thumb">
+                                            <a href="#"><img src="images/avatar1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="user-details">
+                                            <h4><a href="#">Shila Jones</a></h4>
+                                            <p>
+                                                Work for fun
+                                            </p>
+                                        </div>
+                                        <div class="user-status text-danger">
+                                            <i class="fa fa-comments-o"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-center">
+                                        <a href="#" class="view-btn">Ver todos</a>
+                                    </p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="widget-collapsible">
+                            <a href="#" class="head widget-head purple-bg active">
+                                <span class="pull-left"> Chat </span>
+                                <span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
+                            </a>
+                            <ul class="widget-container">
+                                <li>
+                                    <div class="prog-row">
+                                        <div class="user-thumb rsn-activity">
+                                            <i class="fa fa-clock-o"></i>
+                                        </div>
+                                        <div class="rsn-details ">
+                                            <p class="text-muted">
+                                                1 min
+                                            </p>
+                                            <p>
+                                                <a href="#">Admin </a><span id="queixa"></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="widget-collapsible">
+                            <a href="#" class="head widget-head yellow-bg active">
+                                <span class="pull-left"> shipment status</span>
+                                <span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
+                            </a>
+                            <ul class="widget-container">
+                                <li>
+                                    <div class="col-md-12">
+                                        <div class="prog-row">
+                                            <p>
+                                                Full sleeve baby wear (SL: 17665)
+                                            </p>
+                                            <div class="progress progress-xs mtop10">
+                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                                    <span class="sr-only">40% Complete</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="prog-row">
+                                            <p>
+                                                Full sleeve baby wear (SL: 17665)
+                                            </p>
+                                            <div class="progress progress-xs mtop10">
+                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                                                    <span class="sr-only">70% Completed</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+            <!--right sidebar end-->
+        </section>
+        <!-- Placed js at the end of the document so the pages load faster -->
+
+        <!--Core js-->
+        <script src="js/jquery.js"></script>
+        <script src="bs3/js/bootstrap.min.js"></script>
+
+        <!--toggle initialization-->
+        <script src="js/toggle-init.js"></script>
+        <script src="js/jquery-ui/jquery-ui-1.10.1.custom.min.js"></script>
+        <script src="js/jquery.dcjqaccordion.2.7.js"></script>
+        <script src="js/jquery.scrollTo.min.js"></script>
+        <script src="js/jQuery-slimScroll-1.3.0/jquery.slimscroll.js"></script>
+        <script src="js/jquery.nicescroll.js"></script>
+
+        <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+        <script src="js/skycons/skycons.js"></script>
+        <script src="js/jquery.scrollTo/jquery.scrollTo.js"></script>
+        <script src="js/jquery.easing.min.js"></script>
+        <script src="js/calendar/moment-2.2.1.js"></script>
+        <script src="js/evnt.calendar.init.js"></script>
+        <script src="js/jvector-map/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="js/jvector-map/jquery-jvectormap-us-lcc-en.js"></script>
+        <script src="js/gauge/gauge.js"></script>
+
+        <!--clock init-->
+        <script src="js/css3clock/js/css3clock.js"></script>
+
+        <!--Easy Pie Chart-->
+        <script src="js/easypiechart/jquery.easypiechart.js"></script>
+
+        <!--Sparkline Chart-->
+        <script src="js/sparkline/jquery.sparkline.js"></script>
+
+        <!--Morris Chart-->
+        <script src="js/morris-chart/morris.js"></script>
+        <script src="js/morris-chart/raphael-min.js"></script>
+
+        <!--jQuery Flot Chart-->
+        <script src="js/flot-chart/jquery.flot.js"></script>
+        <script src="js/flot-chart/jquery.flot.tooltip.min.js"></script>
+        <script src="js/flot-chart/jquery.flot.resize.js"></script>
+        <script src="js/flot-chart/jquery.flot.pie.resize.js"></script>
+        <script src="js/flot-chart/jquery.flot.animator.min.js"></script>
+        <script src="js/flot-chart/jquery.flot.growraf.js"></script>
+        <script src="js/dashboard.js"></script>
+        <script src="js/jquery.customSelect.min.js" ></script>
+
+
+        <!--Core js-->
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery.nicescroll.js"></script>
+        <script src="js/bootstrap-switch.js"></script>
+
+        <!--common script init for all pages-->
+        <script src="js/scripts.js"></script>
+
+
+        <!--Core js-->
+        <script src="js/calendar/clndr.js"></script>
+        <script src="js/underscore-min.js"></script>
+
+        <!--clock init-->
+        <script src="js/css3clock/js/css3clock.js"></script>
+
+
+
+    </body>
+    </html>

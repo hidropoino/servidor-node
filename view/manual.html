@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="RodriguesFAS">
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <title>Manual Hidropoino</title>
+
+    <!--Core CSS -->
+    <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]>
+    <script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <section id="container" >
+        <!--header start-->
+        <header class="header fixed-top clearfix">
+            <!--logo start-->
+            <div class="brand">
+
+                <a href="#" class="logo">
+                    <img src="images/logo.png" height="50" width="" alt="Hidropoino">
+                </a>
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars"></div>
+                </div>
+            </div>
+            <!--logo end-->
+
+            <div class="nav notify-row" id="top_menu">
+                <!--  notification start -->
+                <ul class="nav top-menu">
+                    <!-- notification dropdown start-->
+                    <li id="header_notification_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                            <i class="fa fa-bell-o"></i>
+                            <span class="badge bg-warning">3</span>
+                        </a>
+                        <ul class="dropdown-menu extended notification">
+                            <li>
+                                <p>Notificações</p>
+                            </li>
+                            <li>
+                                <div class="alert alert-info clearfix">
+                                    <span class="alert-icon"><i class="fa fa-bolt"></i></span>
+                                    <div class="noti-info">
+                                        <a href="#"> Server #1 overloaded.</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="alert alert-danger clearfix">
+                                    <span class="alert-icon"><i class="fa fa-bolt"></i></span>
+                                    <div class="noti-info">
+                                        <a href="#"> Server #2 overloaded.</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="alert alert-success clearfix">
+                                    <span class="alert-icon"><i class="fa fa-bolt"></i></span>
+                                    <div class="noti-info">
+                                        <a href="#"> Server #3 overloaded.</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!-- notification dropdown end -->
+                </ul>
+                <!--  notification end -->
+            </div>
+            <div class="top-nav clearfix">
+                <!--search & user info start-->
+                <ul class="nav pull-right top-menu">
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img alt="Hidropoino" src="images/logo2.png">
+                            <span class="username">Admin</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <li><a href="/configuracoes"><i class="fa fa-cog"></i> Configurações</a></li>
+                            <li><a href="/logout"><i class="fa fa-key"></i> Sair</a></li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+                    <li>
+                        <div class="toggle-right-box">
+                            <div class="fa fa-bars"></div>
+                        </div>
+                    </li>
+                </ul>
+                <!--search & user info end-->
+            </div>
+        </header>
+        <!--header end-->
+        <aside>
+            <div id="sidebar" class="nav-collapse">
+                <!-- sidebar menu start-->
+                <div class="leftside-navigation">
+                    <ul class="sidebar-menu" id="nav-accordion">
+                        <li>
+                            <a class="active" href="/home">
+                                <i class="fa fa-dashboard"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="/configuracao">
+                                <i class="fa fa-wrench"></i>
+                                <span>Configurações</span>
+                            </a>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="sobre">
+                                <i class="fa fa-leaf"></i>
+                                <span>Sobre</span>
+                            </a>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="ajuda:;">
+                                <i class="fa fa-tasks"></i>
+                                <span>Ajuda</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="/manual">Manual Hidropoino</a></li>
+                                <li><a href="/diario">Diário de bordo</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>        
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <!-- page start-->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="panel">
+                            <div class="panel-body profile-information">
+                               <div class="col-md-3">
+                                   <div class="profile-pic text-center">
+                                       <img src="images/logo2.png" alt="Hidropoino"/>
+                                   </div>
+                               </div>
+                               <div class="col-md-6">
+                                   <div class="profile-desk">
+                                       <h1>Hidropoino</h1>
+                                       <span class="text-muted">Manual de informações</span>
+                                       <p>..</p>
+                                       <br/>
+                                       <a href="#" class="btn btn-primary">Webpage</a>
+                                   </div>
+                               </div>
+                               <div class="col-md-3">
+                                   <div class="profile-statistics">
+                                       <h1>2016</h1>
+                                       <p>Juazeiro do Norte - CE, BRA</p>
+                                       <p>contato@hidropoino.com.br</p>
+                                       <ul>
+                                           <li>
+                                               <a href="#">
+                                                   <i class="fa fa-facebook"></i>
+                                               </a>
+                                           </li>
+                                           <li class="active">
+                                               <a href="#">
+                                                   <i class="fa fa-twitter"></i>
+                                               </a>
+                                           </li>
+                                           <li>
+                                               <a href="#">
+                                                   <i class="fa fa-google-plus"></i>
+                                               </a>
+                                           </li>
+                                       </ul>
+                                   </div>
+                               </div>
+                           </div>
+                       </section>
+                   </div>
+                   <div class="col-md-12">
+                    <section class="panel">
+                        <header class="panel-heading tab-bg-dark-navy-blue">
+                            <ul class="nav nav-tabs nav-justified ">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#overview">
+                                        Manual
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#job-history">
+                                        Duvidas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#contacts" class="contact-map">
+                                        Hardware
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#settings">
+                                        Software
+                                    </a>
+                                </li>
+                            </ul>
+                        </header>
+                        <div class="panel-body">
+                            <div class="tab-content tasi-tab">
+                                <div id="overview" class="tab-pane active">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="recent-act">
+                                                <h1>Info.</h1>
+                                                <div class="activity-icon terques">
+                                                    <i class="fa fa-check"></i>
+                                                </div>
+                                                <div class="activity-desk">
+                                                    <h2>Introdução</h2>
+                                                    <p align="justify">
+                                                        Várias especies de plantas podem ser cultivadas em sistemas hidropônicos, como: Hortaliça, Flores, Plantas medicinais e condimentais, Frutos, Cereais e Forrageiras. Para o sucesso nessa técnica de cultivo, vários fatores devem ser observados principalmente a qualidade da solução nutritiva, visto que a planta retira todos os seus nutrientes para o seu desenvolvimento.
+                                                    </p>
+                                                </div>
+                                                <div class="activity-icon red">
+                                                    <i class="fa fa-beer"></i>
+                                                </div>
+                                                <div class="activity-desk">
+                                                    <h2 class="red">Cultura</h2>
+                                                    <p aling="justify">
+                                                        As hortaliça podem ser folhosas ou de frutos.<br/><br/>
+                                                        <b>Hortaliças Folhosas</b>
+                                                        As mais comumente utilizadas são: Alface, Lisa, Crespa, Crespa Roxa, Americana, Arrucula, Agrião, Almeirão, Chicolia, Couve, Espinafre.
+                                                        <br/><br/>
+                                                        <b>Hortaliças de Frutos</b> 
+                                                        Divididos em Santa Cruz, Salada e Cereja; o mais comum no cultivo são: Tomate, Carmem, Empire, Olympo, Irazu, Max, Pepe, Pepino Caipira, Japonês e Holandês, Berinjela, Melão e morango.
+                                                    </p>
+                                                </div>
+                                                <div class="activity-icon purple">
+                                                    <i class="fa fa-tags"></i>
+                                                </div>
+                                                <div class="activity-desk">
+                                                    <h2 class="purple">Cultivando Alface</h2>
+                                                    <p>Nesse sistema foi testado o cultivo de Alface do tipo Crespa Palmas, sem Agrotóxicos.</p>
+                                                    <a href="#">
+                                                        <img src="images/gallery/alfacecrespapaumas.jpg" height="50%" width="50%" alt="Alface Crespa Paumas"/>
+                                                    </a>
+                                                </div>
+
+                                                <div class="activity-icon green">
+                                                    <i class="fa fa-map-marker"></i>
+                                                </div>
+                                                <div class="activity-desk">
+                                                    <h2 class="green">Especificações</h2>
+                                                    <p align="left">
+                                                        <b>Ciclo: </b>De 49 à 60 dias em sistema hidropônico; 65 à 70 dias em terra.<br/>
+                                                        <b>Sol: </b>No mínimo 3 horas diário.<br/>
+                                                        <b>Temperatura: </b>Deve-se mantem entre 18º à 24ºC no verão, 10º à 16º no inverno.<br/>
+                                                        <b>Condutividade: </b>Na faixa de 1,5 à 3,5 miliSiemens/cm, que corresponde entre 1000 à 1500 ppm.<br/>
+                                                        <b>pH da solução: </b>Deve ser mantido entre 5,5 à 6,5.<br/>
+                                                        <b>Consumo de água: </b>De 75 mL a 100 mL de água por dia.
+                                                    </p>
+                                                </div>
+
+                                                <div class="activity-icon yellow">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+                                                <div class="activity-desk">
+                                                    <h2 class="yellow">Cuidados</h2>
+                                                    <p align="justify">
+                                                        <b>Temperatura da solução:</b><br/>
+                                                        Temperaturas acima ou abaixo das recomendadas, causam danos à planta, pois as plantas tem dificuldade em absorver nutrientes em temperaturas extremas.
+                                                        <br/><br/>
+                                                        <b>Nível de Oxigenação:</b><br/>
+                                                        A solução nutritiva deve ser mantida oxigenada, para manter a absorção de nutrientes pelas raízes. Essa oxigenação pode ser mantida durante a circulação da solução no retorno ao reservatório, com uma aplicação de ar comprimido ou oxigenação natural.
+                                                        <br/><br/>
+                                                        <b>Condutividade Elétrica:</b><br/>
+                                                        Controle de grande importância na hidroponia, através dessa condutividade pode-se determinar o quanto de adubo há na solução (quantidade de íons dispostos na solução). 
+                                                        Quanto mais íons se tem na solução, maior será a condutividade elétrica, quanto menos íons se tem na solução menos a condutividade elétrica. As medidas ideais devem ficar dentro da faixa de especificação de concentração total de íons na solução. 
+                                                        Valores acima dessa faixa são prejudiciais à planta, podendo cessar o crescimento e até mesmo a morte das plantas. 
+                                                        Valores inferiores indicam a deficiência de algum elemento, embora não se saiba qual e  em quantidade. Devendo-se fazer uma análise química laboratorial da solução nutritiva.
+                                                        Com o monitoramento da condutividade pode-se verificar a qualidade da solução, e quando ela esta baixa demais pode significar que chegou a hora de trocar a solução, pois a mesma não fornece nutriente o suficiente para o desenvolvimento da planta.
+                                                        <br/><br/>
+
+                                                        <b>pH da Solução Nutritiva:</b><br/>
+                                                        Um medidor de PH mede a acidez da água numa escala de 0 à 14. Essa escala não é linear e, sim logarítmica. A planta não consegue sobreviver com valores abaixo de 3,5. As plantas têm o seu desenvolvimento máximo entre pH 5,5 à 6,5, por isso a sua importância.
+                                                        Diariamente deve ser medida o pH da água, logo após adicionar a solução, tendo as seguintes medidas: 
+                                                        <br><br>
+                                                        Acima de 6,5 [Acido]<br>
+                                                        Abaixo de 5,5 [Base]<br>
+                                                        <br>
+                                                        Pressão Osmótica: é a quantidade de sais presente na solução. Essa quantidade de sal estiver elevada fará com que a planta perca água para a solução. Tentado diluí-la, assim a planta não absorve nutrientes.
+
+                                                        Solução: adicionar mais água a solução para conseguir diluir o excesso de sais na solução, diminuindo a concentração dos sais consequentemente a pressão osmótica.
+
+                                                        <br><br>         
+                                                        Ph da água valor elevado, deve-se baixa acrescentando ácido.
+                                                        Ex.: Ácido fosfórico, sulfúrico, clorídrico ou nítrico, ferro, fosfato monamônico ou vinagre.
+                                                        <br><br>
+                                                        Ph da água valor inferior “Baixo”, deve-se aumentar o ph
+                                                        Ex.: Hidróxido de potássio ou de sódio.
+                                                        <br><br>
+                                                        <a href="#"><img src="images/gallery/ph.png" height="50%" width="50%" alt="Gráfico pH da água"/></a>
+                                                        <br/><br/>
+                                                        <b>Monitoramento desses fatores:</b>
+                                                        A planta consome mais água do que nutrientes, por isso deve-se manter o monitoramento diário para repor os minerais e a água que deve ser pura. a solução é salina e não deve-se tem em excesso, caso contrario a planta pode morrer por adicionar mais nutriente do que as raízes podem suportar.
+                                                    </p>
+                                                </div>
+
+                                                <div class="activity-desk">
+                                                    <h2 class="green">Como Plantar</h2>
+                                                    <p align="left">
+                                                        É importante que a semente seja germinada em sementeira. 
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="prf-box">
+                                                <h3 class="prf-border-head">Sobre o Ph da água</h3>
+                                                <div class=" wk-progress">
+                                                    <div class="col-md-5">Ácido</div>
+                                                    <div class="col-md-5">
+                                                        <div class="progress  ">
+                                                            <div style="width: 70%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-danger">
+                                                                <span class="sr-only">70% Complete (success)</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">70%</div>
+                                                </div>
+                                                <div class=" wk-progress">
+                                                    <div class="col-md-5">Neutro</div>
+                                                    <div class="col-md-5">
+                                                        <div class="progress ">
+                                                            <div style="width: 57%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-success">
+                                                                <span class="sr-only">57% Complete (success)</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">57%</div>
+                                                </div>
+                                                <div class=" wk-progress">
+                                                    <div class="col-md-5">Base</div>
+                                                    <div class="col-md-5">
+                                                        <div class="progress ">
+                                                            <div style="width: 20%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-info">
+                                                                <span class="sr-only">20% Complete (success)</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">20%</div>
+                                                </div>
+                                                <div class=" wk-progress">
+                                                    <div class="col-md-5">Audio Jungle</div>
+                                                    <div class="col-md-5">
+                                                        <div class="progress ">
+                                                            <div style="width: 30%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-warning">
+                                                                <span class="sr-only">30% Complete (success)</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">30%</div>
+                                                </div>
+                                            </div>
+                                            <div class="prf-box">
+                                                <h3 class="prf-border-head">performance status</h3>
+                                                <div class=" wk-progress pf-status">
+                                                    <div class="col-md-8 col-xs-8">Total Product Sales</div>
+                                                    <div class="col-md-4 col-xs-4">
+                                                        <strong>23545</strong>
+                                                    </div>
+                                                </div>
+                                                <div class=" wk-progress pf-status">
+                                                    <div class="col-md-8 col-xs-8">Total Product Refer</div>
+                                                    <div class="col-md-4 col-xs-4">
+                                                        <strong>235</strong>
+                                                    </div>
+                                                </div>
+                                                <div class=" wk-progress pf-status">
+                                                    <div class="col-md-8 col-xs-8">Total Earn</div>
+                                                    <div class="col-md-4 col-xs-4">
+                                                        <strong>235452344$</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="prf-box">
+                                                <h3 class="prf-border-head">team members</h3>
+                                                <div class=" wk-progress tm-membr">
+                                                    <div class="col-md-2 col-xs-2">
+                                                        <div class="tm-avatar">
+                                                            <img src="images/lock_thumb.jpg" alt=""/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <span class="tm">John Boltana</span>
+                                                    </div>
+                                                    <div class="col-md-3 col-xs-3">
+                                                        <a href="#" class="btn btn-white">Assign</a>
+                                                    </div>
+                                                </div>
+                                                <div class=" wk-progress tm-membr">
+                                                    <div class="col-md-2 col-xs-2">
+                                                        <div class="tm-avatar">
+                                                            <img src="images/avatar-mini-2.jpg" alt=""/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <span class="tm">John Boltana</span>
+                                                    </div>
+                                                    <div class="col-md-3 col-xs-3">
+                                                        <a href="#" class="btn btn-white">Assign</a>
+                                                    </div>
+                                                </div>
+                                                <div class=" wk-progress tm-membr">
+                                                    <div class="col-md-2 col-xs-2">
+                                                        <div class="tm-avatar">
+                                                            <img src="images/avatar-mini-3.jpg" alt=""/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <span class="tm">John Boltana</span>
+                                                    </div>
+                                                    <div class="col-md-3 col-xs-3">
+                                                        <a href="#" class="btn btn-white">Assign</a>
+                                                    </div>
+                                                </div>
+                                                <div class=" wk-progress tm-membr">
+                                                    <div class="col-md-2 col-xs-2">
+                                                        <div class="tm-avatar">
+                                                            <img src="images/avatar-mini-4.jpg" alt=""/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <span class="tm">John Boltana</span>
+                                                    </div>
+                                                    <div class="col-md-3 col-xs-3">
+                                                        <a href="#" class="btn btn-white">Assign</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="job-history" class="tab-pane ">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="timeline-messages">
+                                                <h3>Take a Tour</h3>
+                                                <!-- Comment -->
+                                                <div class="msg-time-chat">
+                                                    <div class="message-body msg-in">
+                                                        <span class="arrow"></span>
+                                                        <div class="text">
+                                                            <div class="first">
+                                                                13 January 2013
+                                                            </div>
+                                                            <div class="second bg-terques ">
+                                                                Join as Product Asst. Manager
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /comment -->
+
+                                                <!-- Comment -->
+                                                <div class="msg-time-chat">
+                                                    <div class="message-body msg-in">
+                                                        <span class="arrow"></span>
+                                                        <div class="text">
+                                                            <div class="first">
+                                                                10 February 2012
+                                                            </div>
+                                                            <div class="second bg-red">
+                                                                Completed Provition period and Appointed as a permanent Employee
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /comment -->
+
+                                                <!-- Comment -->
+                                                <div class="msg-time-chat">
+                                                    <div class="message-body msg-in">
+                                                        <span class="arrow"></span>
+                                                        <div class="text">
+                                                            <div class="first">
+                                                                2 January 2011
+                                                            </div>
+                                                            <div class="second bg-purple">
+                                                                Selected Employee of the Month
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /comment -->
+
+                                                <!-- Comment -->
+                                                <div class="msg-time-chat">
+                                                    <div class="message-body msg-in">
+                                                        <span class="arrow"></span>
+                                                        <div class="text">
+                                                            <div class="first">
+                                                                4 March 2010
+                                                            </div>
+                                                            <div class="second bg-green">
+                                                                Got Promotion and become area manager of California
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /comment -->
+                                                <!-- Comment -->
+                                                <div class="msg-time-chat">
+                                                    <div class="message-body msg-in">
+                                                        <span class="arrow"></span>
+                                                        <div class="text">
+                                                            <div class="first">
+                                                                3 April 2009
+                                                            </div>
+                                                            <div class="second bg-yellow">
+                                                                Selected the Best Employee of the Year 2013 and was awarded
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /comment -->
+
+                                                <!-- Comment -->
+                                                <div class="msg-time-chat">
+                                                    <div class="message-body msg-in">
+                                                        <span class="arrow"></span>
+                                                        <div class="text">
+                                                            <div class="first">
+                                                                23 May 2008
+                                                            </div>
+                                                            <div class="second bg-terques">
+                                                                Got Promotion and become Product Manager and was transper from Branch to Head Office. Lorem ipsum dolor sit amet
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /comment -->
+                                                <!-- Comment -->
+                                                <div class="msg-time-chat">
+                                                    <div class="message-body msg-in">
+                                                        <span class="arrow"></span>
+                                                        <div class="text">
+                                                            <div class="first">
+                                                                14 June 2007
+                                                            </div>
+                                                            <div class="second bg-blue">
+                                                                Height Sales scored and break all of the previous sales record ever in the company. Awarded
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /comment -->
+                                                <!-- Comment -->
+                                                <div class="msg-time-chat">
+                                                    <div class="message-body msg-in">
+                                                        <span class="arrow"></span>
+                                                        <div class="text">
+                                                            <div class="first">
+                                                                1 January 2006
+                                                            </div>
+                                                            <div class="second bg-green">
+                                                                Take 15 days leave for his wedding and Honeymoon & Christmas
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /comment -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="contacts" class="tab-pane ">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="prf-contacts">
+                                                <h2> <span><i class="fa fa-map-marker"></i></span> Arduino</h2>
+                                                <div class="location-info">
+                                                    <p>Descrição:<br>
+                                                        <p>Site oficial:<br>
+                                                        </div>
+
+                                                        <h2> <span><i class="fa fa-phone"></i></span> Sensores</h2>
+                                                        <div class="location-info">
+                                                            <p>Sensor de temperatura LM35: </p>
+                                                            <p>Sensor de luminosidade LDR: </p>
+                                                        </div>
+
+                                                        <h2> <span><i class="fa fa-phone"></i></span> Desenho Esquemático Fritizing</h2>
+                                                        <div class="location-info">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div id="map-canvas"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="settings" class="tab-pane ">
+                                            <div class="position-center">
+                                                <div class="prf-contacts sttng">
+                                                    <h2>Código Arduino</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <!-- page end-->
+                </section>
+            </section>
+            <!--main content end-->
+            <!--right sidebar start-->
+            <div class="right-sidebar">
+                <div class="right-stat-bar">
+                    <ul class="right-side-accordion">
+                        <li class="widget-collapsible">
+                            <a href="#" class="head widget-head red-bg active clearfix">
+                                <span class="pull-left">work progress (5)</span>
+                                <span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
+                            </a>
+                            <ul class="widget-container">
+                                <li>
+                                    <div class="prog-row side-mini-stat clearfix">
+                                        <div class="side-graph-info">
+                                            <h4>Target sell</h4>
+                                            <p>
+                                                25%, Deadline 12 june 13
+                                            </p>
+                                        </div>
+                                        <div class="side-mini-graph">
+                                            <div class="target-sell">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="prog-row side-mini-stat">
+                                        <div class="side-graph-info">
+                                            <h4>product delivery</h4>
+                                            <p>
+                                                55%, Deadline 12 june 13
+                                            </p>
+                                        </div>
+                                        <div class="side-mini-graph">
+                                            <div class="p-delivery">
+                                                <div class="sparkline" data-type="bar" data-resize="true" data-height="30" data-width="90%" data-bar-color="#39b7ab" data-bar-width="5" data-data="[200,135,667,333,526,996,564,123,890,564,455]">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="prog-row side-mini-stat">
+                                        <div class="side-graph-info payment-info">
+                                            <h4>payment collection</h4>
+                                            <p>
+                                                25%, Deadline 12 june 13
+                                            </p>
+                                        </div>
+                                        <div class="side-mini-graph">
+                                            <div class="p-collection">
+                                              <span class="pc-epie-chart" data-percent="45">
+                                                  <span class="percent"></span>
+                                              </span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="prog-row side-mini-stat">
+                                    <div class="side-graph-info">
+                                        <h4>delivery pending</h4>
+                                        <p>
+                                            44%, Deadline 12 june 13
+                                        </p>
+                                    </div>
+                                    <div class="side-mini-graph">
+                                        <div class="d-pending">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="prog-row side-mini-stat">
+                                    <div class="col-md-12">
+                                        <h4>total progress</h4>
+                                        <p>
+                                            50%, Deadline 12 june 13
+                                        </p>
+                                        <div class="progress progress-xs mtop10">
+                                            <div style="width: 50%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="20" role="progressbar" class="progress-bar progress-bar-info">
+                                                <span class="sr-only">50% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="widget-collapsible">
+                        <a href="#" class="head widget-head terques-bg active clearfix">
+                            <span class="pull-left">contact online (5)</span>
+                            <span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
+                        </a>
+                        <ul class="widget-container">
+                            <li>
+                                <div class="prog-row">
+                                    <div class="user-thumb">
+                                        <a href="#"><img src="images/avatar1_small.jpg" alt=""></a>
+                                    </div>
+                                    <div class="user-details">
+                                        <h4><a href="#">Jonathan Smith</a></h4>
+                                        <p>
+                                            Work for fun
+                                        </p>
+                                    </div>
+                                    <div class="user-status text-danger">
+                                        <i class="fa fa-comments-o"></i>
+                                    </div>
+                                </div>
+                                <div class="prog-row">
+                                    <div class="user-thumb">
+                                        <a href="#"><img src="images/avatar1.jpg" alt=""></a>
+                                    </div>
+                                    <div class="user-details">
+                                        <h4><a href="#">Anjelina Joe</a></h4>
+                                        <p>
+                                            Available
+                                        </p>
+                                    </div>
+                                    <div class="user-status text-success">
+                                        <i class="fa fa-comments-o"></i>
+                                    </div>
+                                </div>
+                                <div class="prog-row">
+                                    <div class="user-thumb">
+                                        <a href="#"><img src="images/chat-avatar2.jpg" alt=""></a>
+                                    </div>
+                                    <div class="user-details">
+                                        <h4><a href="#">John Doe</a></h4>
+                                        <p>
+                                            Away from Desk
+                                        </p>
+                                    </div>
+                                    <div class="user-status text-warning">
+                                        <i class="fa fa-comments-o"></i>
+                                    </div>
+                                </div>
+                                <div class="prog-row">
+                                    <div class="user-thumb">
+                                        <a href="#"><img src="images/avatar1_small.jpg" alt=""></a>
+                                    </div>
+                                    <div class="user-details">
+                                        <h4><a href="#">Mark Henry</a></h4>
+                                        <p>
+                                            working
+                                        </p>
+                                    </div>
+                                    <div class="user-status text-info">
+                                        <i class="fa fa-comments-o"></i>
+                                    </div>
+                                </div>
+                                <div class="prog-row">
+                                    <div class="user-thumb">
+                                        <a href="#"><img src="images/avatar1.jpg" alt=""></a>
+                                    </div>
+                                    <div class="user-details">
+                                        <h4><a href="#">Shila Jones</a></h4>
+                                        <p>
+                                            Work for fun
+                                        </p>
+                                    </div>
+                                    <div class="user-status text-danger">
+                                        <i class="fa fa-comments-o"></i>
+                                    </div>
+                                </div>
+                                <p class="text-center">
+                                    <a href="#" class="view-btn">View all Contacts</a>
+                                </p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="widget-collapsible">
+                        <a href="#" class="head widget-head purple-bg active">
+                            <span class="pull-left"> recent activity (3)</span>
+                            <span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
+                        </a>
+                        <ul class="widget-container">
+                            <li>
+                                <div class="prog-row">
+                                    <div class="user-thumb rsn-activity">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <div class="rsn-details ">
+                                        <p class="text-muted">
+                                            just now
+                                        </p>
+                                        <p>
+                                            <a href="#">Jim Doe </a>Purchased new equipments for zonal office setup
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="prog-row">
+                                    <div class="user-thumb rsn-activity">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <div class="rsn-details ">
+                                        <p class="text-muted">
+                                            2 min ago
+                                        </p>
+                                        <p>
+                                            <a href="#">Jane Doe </a>Purchased new equipments for zonal office setup
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="prog-row">
+                                    <div class="user-thumb rsn-activity">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <div class="rsn-details ">
+                                        <p class="text-muted">
+                                            1 day ago
+                                        </p>
+                                        <p>
+                                            <a href="#">Jim Doe </a>Purchased new equipments for zonal office setup
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="widget-collapsible">
+                        <a href="#" class="head widget-head yellow-bg active">
+                            <span class="pull-left"> shipment status</span>
+                            <span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
+                        </a>
+                        <ul class="widget-container">
+                            <li>
+                                <div class="col-md-12">
+                                    <div class="prog-row">
+                                        <p>
+                                            Full sleeve baby wear (SL: 17665)
+                                        </p>
+                                        <div class="progress progress-xs mtop10">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                                <span class="sr-only">40% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="prog-row">
+                                        <p>
+                                            Full sleeve baby wear (SL: 17665)
+                                        </p>
+                                        <div class="progress progress-xs mtop10">
+                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                                                <span class="sr-only">70% Completed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--right sidebar end-->
+
+    </section>
+
+    <!-- Placed js at the end of the document so the pages load faster -->
+
+    <!--Core js-->
+    <script src="js/jquery.js"></script>
+    <script src="bs3/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="js/jquery.scrollTo.min.js"></script>
+    <script src="js/jQuery-slimScroll-1.3.0/jquery.slimscroll.js"></script>
+    <script src="js/jquery.nicescroll.js"></script>
+    <!--Easy Pie Chart-->
+    <script src="js/easypiechart/jquery.easypiechart.js"></script>
+    <!--Sparkline Chart-->
+    <script src="js/sparkline/jquery.sparkline.js"></script>
+    <!--jQuery Flot Chart-->
+    <script src="js/flot-chart/jquery.flot.js"></script>
+    <script src="js/flot-chart/jquery.flot.tooltip.min.js"></script>
+    <script src="js/flot-chart/jquery.flot.resize.js"></script>
+    <script src="js/flot-chart/jquery.flot.pie.resize.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&AMP;sensor=false"></script>
+
+    <!--common script init for all pages-->
+    <script src="js/scripts.js"></script>
+    <script>
+
+    //google map
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(-37.815207, 144.963937);
+        var mapOptions = {
+            zoom: 15,
+            scrollwheel: false,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: 'Hello World!'
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    $('.contact-map').click(function(){
+
+    //google map in tab click initialize
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(-37.815207, 144.963937);
+        var mapOptions = {
+            zoom: 15,
+            scrollwheel: false,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: 'Hello World!'
+        });
+    }
+    google.maps.event.addDomListener(window, 'click', initialize);
+});
+
+</script>
+
+
+
+</body>
+</html>
