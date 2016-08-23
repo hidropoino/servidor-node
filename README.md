@@ -1,6 +1,11 @@
 # Hidropoio - Horta Hidropônica Inteligente e Sustentável
+![hidropoino Logo]()
 
-![hidropoino]()
+Tela Login
+![hidropoino Sistema]()
+
+Tela DashBoard
+![hidropoino Sistema]()
 
 **Visão geral**
 Imagine um sistema hidropônico sustentável e inteligente, que não necessitará da interversão humana em algumas atividades. O projeto proposto aborda agentes inteligentes, sensores e atuadores, entre outras tecnologias e técnicas, onde realizarão o controle de todas as variáveis do sistema, necessárias para a produção de alguns tipos de hortaliças e frutas em domicilio, tudo isso visando qualidade na alimentação, economia de água, sustentabilidade e baixo custo.
