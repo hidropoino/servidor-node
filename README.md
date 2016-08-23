@@ -23,14 +23,14 @@ Há 3 partes principais:
 
 ## Requisitos de Software / dependências
 
-* Node
-* NPM
-* SerialPort
-* Socket.io
-* Express.io
-* Crypto
-* Nodemon
-* neDB
+* [Node] (https://nodejs.org/en/) use a versão 0.10.46
+* [NPM] (https://www.npmjs.com/) 
+* [SerialPort] (https://www.npmjs.com/package/serialport-js)
+* [Socket.io] (http://socket.io/)
+* [Express] (https://expressjs.com/)
+* [Crypto] (https://www.npmjs.com/package/crypto-js)
+* [Nodemon] (https://www.npmjs.com/package/nodemon)
+* [neDB] (https://www.npmjs.com/package/nedb)
 
 ## Instalação e Uso
 
