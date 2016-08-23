@@ -1,5 +1,5 @@
 # Hidropoio - Horta Hidropônica Inteligente e Sustentável
-![hidropoino Logo]()
+![hidropoino Logo](https://github.com/hidropoino/servidor-node/blob/master/public/images/logo3.png)
 
 Tela Login
 ![hidropoino Sistema]()
