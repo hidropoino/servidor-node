@@ -3,7 +3,7 @@
 ![hidropoino]()
 
 **Visão geral**
-Imagine se você pudesse conversar com suas plantas da casa e eles lhe dizer se eles precisavam de água, como era quente e até mesmo olhar para você como você anda passado ...
+Imagine um sistema hidropônico sustentável e inteligente, que não necessitará da interversão humana em algumas atividades. O projeto proposto aborda agentes inteligentes, sensores e atuadores, entre outras tecnologias e técnicas, onde realizarão o controle de todas as variáveis do sistema, necessárias para a produção de alguns tipos de hortaliças e frutas em domicilio, tudo isso visando qualidade na alimentação, economia de água, sustentabilidade e baixo custo.
 
 Hidropoino é um protótipo experimental para explorar como é fácil de misturar [Arduino] (https://www.arduino.cc/), [Socket.io] (http://socket.io/) eo [Web HTML5 Speech API] (https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html) (Speech & Síntese) para fazer exatamente isso.
 
