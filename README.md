@@ -49,10 +49,10 @@ Há 3 partes principais:
 **Passo a passo:**
 
 1. Fork do repo
-2. NPM de instalação para instalar as dependências do nó
-3. Conecte-se George como acima (você pode também trabalhar fora de fiação através da leitura do code-arduino.ino)
-4. Faça upload do code-arduino.ino para o Arduino Uno usando o Arduino IDE
-5. app.js nó Executar e visita https: // localhost: 8000 para interagir com Hidropoino
+2. NPM de instalação para instalar as dependências.
+3. Conecte-se Hidropoino ao seu PC com o cabo USB.
+4. Faça upload do code-arduino.ino para o Arduino Uno usando o Arduino IDE.
+5. nodemon app.js para executar o servidor. Pagina disponivel em https: // localhost:8000 para interagir com Hidropoino.
 
 ## License
 MIT
